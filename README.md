@@ -3,6 +3,8 @@ Tutorial => https://github.com/java-native-access/jna/blob/master/www/GettingSta
 
 http://engineering.curalate.com/2016/04/29/bridging-scala-to-c++-with-bridj.html
 
+https://www.programcreek.com/java-api-examples/?api=com.sun.jna.Pointer
+
 
 Whats done: call simple summ;
 

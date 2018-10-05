@@ -18,9 +18,9 @@ class LoaderSummwPointers {
     val INSTANCE: CLib = Native.loadLibrary("summwPointers", classOf[CLib]).asInstanceOf[CLib]
   }
   trait CLib extends Library{
-    def SummwPointers(a: Pointer[Int], b: Pointer[Int]): Int
+    def SummwPointers(a: Pointer, b: Pointer): Int
   }
-  def SummwPointersCall(a: Pointer[Int], b: Pointer[Int]): Int ={
-    CLib.INSTANCE.SummwPointers(a: Pointer[Int], b: Pointer[Int])
+  def SummwPointersCall(a: Pointer, b: Pointer): Int ={
+    CLib.INSTANCE.SummwPointers(a: Pointer, b: Pointer)
   }
 }

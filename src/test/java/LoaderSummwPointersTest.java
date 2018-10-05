@@ -1,3 +1,4 @@
+import com.sun.jna.Memory;
 import com.sun.jna.Pointer;
 import org.junit.jupiter.api.Test;
 
@@ -8,14 +9,16 @@ class LoaderSummwPointersTest {
     @Test
     void summwPointersCall() {
         LoaderSummwPointers obj = new LoaderSummwPointers();
-        int a=6;
+        int a= 5;
         int b= 8;
-        assertEquals(obj.simpleSummCall(5,8), 13);
-        assertNotEquals(obj.simpleSummCall(5,8), 17);
+        assertEquals(obj.SummwPointersCall(getPointer(a), getPointer(b)), 13);
+        assertNotEquals(obj.SummwPointersCall(getPointer(a), getPointer(b)),  17);
     }
 
     Pointer getPointer(int input){
-        Pointer ptr = new Pointer();
+        Pointer pointer = new Memory(4);
+        pointer.setInt(0,input);
+        return  pointer;
 
     }
 }
