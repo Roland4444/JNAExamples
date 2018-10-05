@@ -13,6 +13,8 @@ class LoaderSummwPointersTest {
         int b= 8;
         assertEquals(obj.SummwPointersCall(getPointer(a), getPointer(b)), 13);
         assertNotEquals(obj.SummwPointersCall(getPointer(a), getPointer(b)),  17);
+        assertEquals(obj.SummwPointersCall(obj.getPointerSc(a), obj.getPointerSc(b)), 13);
+        assertNotEquals(obj.SummwPointersCall(obj.getPointerSc(a), obj.getPointerSc(b)), 15);
     }
 
     Pointer getPointer(int input){

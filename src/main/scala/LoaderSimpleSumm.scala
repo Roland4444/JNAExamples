@@ -1,4 +1,4 @@
-import com.sun.jna.{Library, Native, Pointer}
+import com.sun.jna.{Library, Memory, Native, Pointer}
 class LoaderSimpleSumm {
   object CLib {
     val INSTANCE: CLib = Native.loadLibrary("simpleSumm", classOf[CLib]).asInstanceOf[CLib]
@@ -22,5 +22,11 @@ class LoaderSummwPointers {
   }
   def SummwPointersCall(a: Pointer, b: Pointer): Int ={
     CLib.INSTANCE.SummwPointers(a: Pointer, b: Pointer)
+  }
+
+  def getPointerSc(input: Int): Pointer = {
+    val pointer = new Memory(4)
+    pointer.setInt(0, input)
+    pointer
   }
 }
