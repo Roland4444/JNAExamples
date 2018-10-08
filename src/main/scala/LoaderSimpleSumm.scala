@@ -1,4 +1,8 @@
-import com.sun.jna.{Library, Memory, Native, Pointer}
+import java.util
+import java.util.{Arrays, List}
+
+import SendSimpleStruct.CLibrary.input
+import com.sun.jna._
 class LoaderSimpleSumm {
   object CLib {
     val INSTANCE: CLib = Native.loadLibrary("simpleSumm", classOf[CLib]).asInstanceOf[CLib]
@@ -66,16 +70,15 @@ class loaderPrintChar {
   }
 }
 
-
-class loaderwPrintChar {
+class simplePrint {
   object CLib {
-    val INSTANCE: CLib = Native.loadLibrary("callPrintChar", classOf[CLib]).asInstanceOf[CLib]
+    val INSTANCE: CLib = Native.loadLibrary("printInt", classOf[CLib]).asInstanceOf[CLib]
   }
   trait CLib extends Library{
-    def wprintChar(a: Pointer): Int
+    def printInt(a: Int): Int
   }
-  def callwprintChar(a: Pointer): Int ={
-    CLib.INSTANCE.wprintChar(a)
+  def callprintInt(a: Int): Int ={
+    CLib.INSTANCE.printInt(a)
   }
 
   def getPointerSc(input: Int): Pointer = {
@@ -83,10 +86,5 @@ class loaderwPrintChar {
     pointer.setInt(0, input)
     pointer
   }
-
-  def getPointerStr(input: String): Pointer = {
-    val pointer = new Memory(input.length + 1)
-    pointer.setString(0, input)
-    pointer
-  }
 }
+

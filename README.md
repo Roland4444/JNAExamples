@@ -6,6 +6,8 @@ http://engineering.curalate.com/2016/04/29/bridging-scala-to-c++-with-bridj.html
 https://www.programcreek.com/java-api-examples/?api=com.sun.jna.Pointer
 
 
+https://community.oracle.com/docs/DOC-982919
+
 Whats done: call simple summ;
         call summ w pointers
 
