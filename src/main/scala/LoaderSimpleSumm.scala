@@ -11,8 +11,6 @@ class LoaderSimpleSumm {
   }
 }
 
-
-
 class LoaderSummwPointers {
   object CLib {
     val INSTANCE: CLib = Native.loadLibrary("summwPointers", classOf[CLib]).asInstanceOf[CLib]
@@ -22,6 +20,24 @@ class LoaderSummwPointers {
   }
   def SummwPointersCall(a: Pointer, b: Pointer): Int ={
     CLib.INSTANCE.SummwPointers(a: Pointer, b: Pointer)
+  }
+
+  def getPointerSc(input: Int): Pointer = {
+    val pointer = new Memory(4)
+    pointer.setInt(0, input)
+    pointer
+  }
+}
+
+class LoaderWrappedSimpleSumm {
+  object CLib {
+    val INSTANCE: CLib = Native.loadLibrary("wSimpleSumm", classOf[CLib]).asInstanceOf[CLib]
+  }
+  trait CLib extends Library{
+    def wSimpleSumm(a: Int, b: Int): Int
+  }
+  def callwSimpleSumm(a: Int, b: Int): Int ={
+    CLib.INSTANCE.wSimpleSumm(a: Int, b: Int)
   }
 
   def getPointerSc(input: Int): Pointer = {
