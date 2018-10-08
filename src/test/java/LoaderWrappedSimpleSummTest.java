@@ -8,6 +8,6 @@ class LoaderWrappedSimpleSummTest {
     void summwPointersCall() {
         LoaderWrappedSimpleSumm lwss = new LoaderWrappedSimpleSumm();
         assertEquals(16, lwss.callwSimpleSumm(8, 8));
-        assertNotEquals(11, lwss.callwSimpleSumm(18, 8));
+        assertNotEquals(23, lwss.callwSimpleSumm(18, 8));
     }
 }

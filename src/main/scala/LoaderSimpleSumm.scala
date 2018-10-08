@@ -46,3 +46,47 @@ class LoaderWrappedSimpleSumm {
     pointer
   }
 }
+
+
+class loaderPrintChar {
+  object CLib {
+    val INSTANCE: CLib = Native.loadLibrary("printChar", classOf[CLib]).asInstanceOf[CLib]
+  }
+  trait CLib extends Library{
+    def printChar(a: Pointer): Int
+  }
+  def callprintChar(a: Pointer): Int ={
+    CLib.INSTANCE.printChar(a)
+  }
+
+  def getPointerSc(input: Int): Pointer = {
+    val pointer = new Memory(4)
+    pointer.setInt(0, input)
+    pointer
+  }
+}
+
+
+class loaderwPrintChar {
+  object CLib {
+    val INSTANCE: CLib = Native.loadLibrary("callPrintChar", classOf[CLib]).asInstanceOf[CLib]
+  }
+  trait CLib extends Library{
+    def wprintChar(a: Pointer): Int
+  }
+  def callwprintChar(a: Pointer): Int ={
+    CLib.INSTANCE.wprintChar(a)
+  }
+
+  def getPointerSc(input: Int): Pointer = {
+    val pointer = new Memory(4)
+    pointer.setInt(0, input)
+    pointer
+  }
+
+  def getPointerStr(input: String): Pointer = {
+    val pointer = new Memory(input.length + 1)
+    pointer.setString(0, input)
+    pointer
+  }
+}

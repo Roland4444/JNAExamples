@@ -14,3 +14,5 @@ RoadMap:
         call summ with struct;
         call summ with pointer to struct;
         wrapped summ with pointer to struct;
+
+When Invoked C @ Scala loading so must be in library classpath but dependenced librry on root;
