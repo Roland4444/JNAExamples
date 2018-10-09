@@ -1,7 +1,6 @@
 import java.util
 import java.util.{Arrays, List}
 
-import SendSimpleStruct.CLibrary.input
 import com.sun.jna._
 class LoaderSimpleSumm {
   object CLib {
@@ -88,3 +87,20 @@ class simplePrint {
   }
 }
 
+class callsimpleCPlusplus{
+  object CLib {
+    val INSTANCE: CLib = Native.loadLibrary("simpleSo", classOf[CLib]).asInstanceOf[CLib]
+  }
+  trait CLib extends Library{
+    def summ(a: Int, b: Int): Int
+  }
+  def call_cpluplus_summ(a: Int, b: Int): Int ={
+    CLib.INSTANCE.summ(a,b)
+  }
+
+  def getPointerSc(input: Int): Pointer = {
+    val pointer = new Memory(4)
+    pointer.setInt(0, input)
+    pointer
+  }
+}

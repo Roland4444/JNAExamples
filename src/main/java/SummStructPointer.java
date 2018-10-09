@@ -1,11 +1,8 @@
 import com.sun.jna.*;
-
 import java.util.Arrays;
 import java.util.List;
-
 public class SummStructPointer {
     public interface CLibrary extends Library {
-
         public static class input extends Structure {
             @Override
             protected List<String> getFieldOrder() {
@@ -17,12 +14,8 @@ public class SummStructPointer {
             public int b;
 
         }
-
         CLibrary INSTANCE = (CLibrary) Native.loadLibrary(("summPointerStruct"), CLibrary.class);
         int structSummPointer(input a);
-
-
-
 
     }
 }
