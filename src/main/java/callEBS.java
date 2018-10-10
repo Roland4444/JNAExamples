@@ -21,7 +21,7 @@ public class callEBS {
         }
 
 
-        callCplplStruct.CLibrary INSTANCE = (callCplplStruct.CLibrary) Native.loadLibrary(("simpleSo"), callCplplStruct.CLibrary.class);
+        CLibrary INSTANCE = (CLibrary) Native.loadLibrary(("GBP_EBS"), CLibrary.class);
         ResultCheck lets_check(String config, String filename);
 
     }
@@ -29,7 +29,5 @@ public class callEBS {
         return CLibrary.INSTANCE.lets_check( config,  filename);
     }
 
-    callCplplStruct.CLibrary.resultStruct callLetsSumm(callCplplStruct.CLibrary.inputStruct flow){
-        return callCplplStruct.CLibrary.INSTANCE.letsSumm(flow);
-    }
+
 }
