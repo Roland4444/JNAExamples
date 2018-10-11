@@ -34,7 +34,7 @@ public class callEBS {
         }
 
 
-        CLibrary INSTANCE = (CLibrary) Native.loadLibrary(("GBP_EBS"), CLibrary.class);
+        CLibrary INSTANCE = (CLibrary) Native.loadLibrary(("GBP"), CLibrary.class);
         ResultCheck lets_check(String config, String filename);
 
     }
